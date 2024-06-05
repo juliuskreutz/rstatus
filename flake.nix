@@ -35,6 +35,10 @@
       commonArgs = {
         src = craneLib.cleanCargoSource (craneLib.path ./.);
         strictDeps = true;
+
+        buildInputs = with pkgs; [
+          xorg.libxcb
+        ];
       };
 
       rstatus = craneLib.buildPackage (commonArgs
