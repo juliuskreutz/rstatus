@@ -14,5 +14,5 @@ strip = true
 panic = "abort"
 
 [dependencies]
-xcb = "1.2.2"
-chrono = "0.4.31"
+xcb = "1.4.0"
+chrono = "0.4.38"
