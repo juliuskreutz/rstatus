@@ -18,9 +18,10 @@ in {
       enable = true;
       description = "Rstatus";
       unitConfig = {
-        Type = "simple";
+        Type = "Simple";
+        Restart = "always";
       };
-      serviceConfig.execStart = "${pkgs.rstatus}/bin/rstatus";
+      serviceConfig.ExecStart = "${pkgs.rstatus}/bin/rstatus";
       wantedBy = ["multi-user.target"];
     };
   };
