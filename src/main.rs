@@ -1,7 +1,7 @@
 use xcb::x;
 
 fn main() {
-    let (connection, screen_num) = xcb::Connection::connect(None).unwrap();
+    let (connection, screen_num) = xcb::Connection::connect(Some(":0")).unwrap();
 
     let root = connection
         .get_setup()
