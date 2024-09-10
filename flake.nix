@@ -50,8 +50,6 @@
         inherit rstatus;
       };
 
-      formatter = pkgs.alejandra;
-
       packages.default = rstatus;
       packages.rstatus = rstatus;
 
