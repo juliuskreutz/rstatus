@@ -18,7 +18,7 @@ in {
       enable = true;
       description = "Rstatus";
       serviceConfig = {
-        PassEnvironment = "DISPLAY";
+        Environment = "DISPLAY=:0";
         ExecStart = "${pkgs.rstatus}/bin/rstatus";
       };
       wantedBy = ["multi-user.target"];
