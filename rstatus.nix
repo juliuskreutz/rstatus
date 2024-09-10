@@ -15,11 +15,9 @@ in {
     nixpkgs.overlays = [inputs.self.overlays.default];
 
     systemd.user.services.rstatus = {
-      Unit = {
-        Description = "Rstatus";
-      };
-      Install.WantedBy = ["multi-user.target"];
-      Service.ExecStart = "${pkgs.rstatus}/bin/rstatus";
+      description = "Rstatus";
+      wantedBy = ["multi-user.target"];
+      serviceConfig.execStart = "${pkgs.rstatus}/bin/rstatus";
     };
   };
 }
