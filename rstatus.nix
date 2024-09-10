@@ -15,9 +15,13 @@ in {
     nixpkgs.overlays = [inputs.self.overlays.default];
 
     systemd.user.services.rstatus = {
+      enable = true;
       description = "Rstatus";
-      wantedBy = ["multi-user.target"];
+      unitConfig = {
+        Type = "simple";
+      };
       serviceConfig.execStart = "${pkgs.rstatus}/bin/rstatus";
+      wantedBy = ["multi-user.target"];
     };
   };
 }
