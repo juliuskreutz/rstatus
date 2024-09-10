@@ -14,7 +14,7 @@ in {
   config = lib.mkIf cfg.enable {
     nixpkgs.overlays = [inputs.self.overlays.default];
 
-    systemd.services.rstatus = {
+    systemd.user.services.rstatus = {
       enable = true;
       description = "Rstatus";
       unitConfig = {
