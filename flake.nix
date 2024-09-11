@@ -19,15 +19,7 @@
     flake-utils,
     ...
   }:
-    {
-      overlays.default = _: prev: {
-        rstatus = self.packages.${prev.stdenv.hostPlatform.system}.default;
-      };
-      overlays.rstatus = self.overlays.default;
-      nixosModules.default = import ./rstatus.nix inputs;
-      nixosModules.rstatus = self.nixosModules.default;
-    }
-    // (flake-utils.lib.eachDefaultSystem (system: let
+    flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
 
       craneLib = crane.mkLib pkgs;
@@ -65,5 +57,5 @@
           taplo
         ];
       };
-    }));
+    });
 }
